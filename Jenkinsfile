@@ -1,9 +1,8 @@
 pipeline {
-    agent { label "Jenkins-Agent" }
     environment {
               APP_NAME = "register-app-pipeline"
     }
-
+    agent any
     stages {
         stage("Cleanup Workspace") {
             steps {
