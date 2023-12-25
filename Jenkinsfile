@@ -13,7 +13,7 @@ pipeline {
 
         stage("Checkout from SCM") {
                steps {
-                   git branch: 'main', credentialsId: 'github', url: 'https://github.com/Ashfaque-9x/gitops-register-app'
+                   git branch: 'amen', credentialsId: 'GitHub', url: 'https://github.com/amen123456/gitops-register-app-main'
                }
         }
 
@@ -30,13 +30,13 @@ pipeline {
         stage("Push the changed deployment file to Git") {
             steps {
                 sh """
-                   git config --global user.name "Ashfaque-9x"
-                   git config --global user.email "ashfaque.s510@gmail.com"
+                   git config --global user.name "amen123456"
+                   git config --global user.email "amenallah.benkhalifa@esprit.tn"
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                  sh "git push https://github.com/Ashfaque-9x/gitops-register-app main"
+                withCredentials([gitUsernamePassword(credentialsId: 'GitHub', gitToolName: 'Default')]) {
+                  sh "git push https://github.com/amen123456/gitops-register-app-main"
                 }
             }
         }
